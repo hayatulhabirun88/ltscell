@@ -8,9 +8,12 @@
         </div>
     </div>
 </div>
-<div class="mt-5">
+<div class="mt-5 mb-5">
     <div class="tf-container">
         @livewire('daftar-harga')
     </div>
 </div>
-@include('template.footer_blank')
+<div class="mb-5">
+</div>
+
+@include('template.footer')

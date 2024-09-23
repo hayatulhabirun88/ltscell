@@ -8,7 +8,7 @@
         </div>
     </div>
 </div>
-<div class="mt-5">
+<div class="mt-5 mb-5">
     <div class="tf-container">
         <img src="{{ $prepaid->icon_url }}" alt="">
         <div class="" style="padding;5px; margin-top:10px; margin-buttom:10px;">
@@ -23,4 +23,6 @@
         </div>
     </div>
 </div>
-@include('template.footer_blank')
+<div class="mb-5">
+</div>
+@include('template.footer')
