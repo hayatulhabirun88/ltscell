@@ -103,7 +103,7 @@
             </div>
             <ul class="box-service mt-3">
                 <li>
-                    <a href="/pulsa">
+                    <a href="/pulsa-reguler">
                         <div class="icon-box bg_color_1">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

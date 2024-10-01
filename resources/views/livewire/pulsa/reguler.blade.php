@@ -1,13 +1,18 @@
 <div>
-    <h2 class="text-center mt-3">Pulsa Reguler</h2>
-    <form action="">
-        <div class="mb-3 mt-5">
-            <input type="text" class="form-control" name="no_hp" id="no_hp" aria-describedby="helpId"
-                placeholder="" />
-        </div>
-        <div class="mb-3">
-            <input type="submit" style="width: 100%;" class="btn btn-info" value="ISI PULSA">
-        </div>
+    <form wire:submit.prevent="store()">
+        <div class="tf-form mt-7">
+            <div class="group-input">
+                <label>Nomor Handphone</label>
+                <input type="text" wire:model="no_hp">
+                @error('no_hp')
+                    <span class="text-danger" style="margin-left:15px;">{{ $message }}</span>
+                @enderror
+            </div>
 
+
+        </div>
+        <div class="bottom-navigation-bar bottom-btn-fixed st2 ">
+            <button type="submit" class="tf-btn accent large">Next</button>
+        </div>
     </form>
 </div>

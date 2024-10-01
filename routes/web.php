@@ -22,7 +22,15 @@ Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/riwayat', [HomeController::class, 'riwayat'])->name('riwayat');
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+
+// Pulsa Reguler
 Route::get('/pulsa-reguler', [PulsaController::class, 'index'])->name('pulsa.reguler');
+Route::get('/pulsa-reguler-nominal', [PulsaController::class, 'nominal'])->name('pulsa.pilih-nominal');
+Route::get('/pulsa-view-transaksi/{id}', [PulsaController::class, 'view_proses'])->name('pulsa.view-transaksi');
+Route::post('/pulsa-proses-transaksi', [PulsaController::class, 'proses_transaksi'])->name('pulsa.proses-transaksi');
+Route::get('/pulsa-finish-proses', [PulsaController::class, 'finish_proses'])->name('pulsa.finish-proses');
+
+
 Route::get('/daftar-harga', [DaftarHargaController::class, 'index'])->name('daftar.harga');
 Route::get('/daftar-harga-prepaid/{id}', [DaftarHargaController::class, 'show'])->name('daftar.harga_prepaid.show');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');

@@ -4,13 +4,13 @@
     <div class="tf-container">
         <div class="tf-statusbar d-flex justify-content-center align-items-center">
             <a href="{{ asset('/') }}tmp_mobile/#" class="back-btn"> <i class="icon-left"></i> </a>
-            <h3>Pulsa Reguler</h3>
+            <h3>Pilih Nominal</h3>
         </div>
     </div>
 </div>
 <div class="mt-5 mb-5">
     <div class="tf-container">
-        @livewire('pulsa.reguler')
+        @livewire('pulsa.pilih-nominal')
     </div>
 </div>
 <div class="mb-5">
