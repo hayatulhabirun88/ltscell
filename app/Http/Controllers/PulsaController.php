@@ -28,6 +28,7 @@ class PulsaController extends Controller
     public function proses_transaksi(Request $request)
     {
 
+
         $request->validate([
             'id_prepaid' => 'required|numeric',
         ]);
@@ -62,24 +63,32 @@ class PulsaController extends Controller
             if ($response->successful()) {
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
-                $transaksi = Transaksi::create([
-                    'name' => NULL,
-                    'meter_no' => NULL,
-                    'subscriber_id' => NULL,
-                    'segment_power' => NULL,
-                    'ref_id' => $data['data']['ref_id'],
-                    'status' => $data['data']['status'],
-                    'product_code' => $data['data']['product_code'],
-                    'customer_id' => $data['data']['customer_id'],
-                    'price' => $data['data']['price'],
-                    'message' => $data['data']['message'],
-                    'balance' => $data['data']['balance'],
-                    'tr_id' => $data['data']['tr_id'],
-                    'rc' => $data['data']['rc'],
-                    'sn' => NULL,
-                ]);
+                // Periksa apakah 'data' ada dalam respons
+                if (isset($data['data'])) {
 
-                return redirect()->route('pulsa.finish-proses', ['id' => $request->id_prepaid]);
+                    Transaksi::create([
+                        'name' => $data['data']['name'] ?? '',
+                        'meter_no' => $data['data']['meter_no'] ?? null,
+                        'subscriber_id' => $data['data']['subscriber_id'] ?? null,
+                        'segment_power' => $data['data']['segment_power'] ?? null,
+                        'ref_id' => $data['data']['ref_id'],
+                        'status' => $data['data']['status'],
+                        'product_code' => $data['data']['product_code'] ?? null,
+                        'customer_id' => $data['data']['customer_id'] ?? null,
+                        'price' => $data['data']['price'] ?? 0,
+                        'message' => $data['data']['message'] ?? '',
+                        'balance' => $data['data']['balance'] ?? 0,
+                        'tr_id' => $data['data']['tr_id'],
+                        'rc' => $data['data']['rc'],
+                        'prepaid_id' => $request->id_prepaid,
+                        'sn' => $data['data']['sn'] ?? '',
+                    ]);
+
+                    return redirect()->route('pulsa.view-transaksi-finish');
+                } else {
+                    // Jika data tidak ditemukan di dalam respons
+                    return redirect()->back()->withErrors(['error' => 'Data tidak ditemukan dalam respons.']);
+                }
             } else {
                 return redirect()->back();
             }
@@ -91,8 +100,8 @@ class PulsaController extends Controller
         return redirect()->route('pulsa.view-transaksi-finish', ['id' => $request->transaction_id]);
     }
 
-    public function finish_proses($id)
+    public function finish_proses()
     {
-
+        return view('pulsa.finish_proses');
     }
 }

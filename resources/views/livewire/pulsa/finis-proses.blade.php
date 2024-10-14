@@ -51,22 +51,22 @@
 
             <div class="content">
                 <div class="top">
-                    <h2>Berhasil!</h2>
-                    <p class="fw_4">Isi pulsa berhasil di proses!</p>
+                    <h2>Successful!</h2>
+                    <p class="fw_4">Your transfer has been done!</p>
                 </div>
                 <div class="tf-spacing-16"></div>
                 <div class="inner">
-                    <p class="on_surface_color fw_6">Transaksi sejumlah</p>
-                    <h1>Rp. 3.200</h1>
+                    <p class="on_surface_color fw_6">Transfer amount</p>
+                    <h1>$ 1200.0</h1>
                 </div>
                 <div class="tf-spacing-16"></div>
                 <div class="bottom">
-                    <p class="on_surface_color fw_6">dengan nomor 081342726770</p>
-                    {{-- <p>ke nomor 081342726770</p> --}}
+                    <p class="on_surface_color fw_6">Message</p>
+                    <p>Marverick Nguyen send loan payment</p>
                 </div>
 
             </div>
-            <a href="/" class="tf-btn accent large">Kembali</a>
+            <a href="home.html" class="tf-btn accent large">Done</a>
 
         </div>
 

@@ -10,25 +10,41 @@
 <div id="app-wrap">
     <div class="app-section st1 mt-1 mb-5 bg_white_color">
         <div class="tf-container">
-            <div class="trading-month">
-                <h4 class="fw_5 mb-3">November</h4>
+            @php
+                $lastMonth = null; // Variabel untuk menyimpan bulan terakhir yang ditampilkan
+            @endphp
+
+            @foreach ($transaksi as $trx)
+                @php
+                    $currentMonth = $trx->created_at->translatedFormat('F'); // Ambil bulan transaksi saat ini
+                    $produk = \App\Models\Prepaid::find($trx->prepaid_id);
+                @endphp
+
+                @if ($currentMonth !== $lastMonth)
+                    <div class="trading-month">
+                        <h4 class="fw_5 mb-3">{{ $currentMonth }}</h4>
+                    </div>
+                    @php
+                        $lastMonth = $currentMonth; // Update bulan terakhir dengan bulan transaksi saat ini
+                    @endphp
+                @endif
+
                 <div class="group-trading-history mb-5">
-                    <a class="tf-trading-history" href="61_filter-research.html">
+                    <a class="tf-trading-history" href="/riwayat-detail/{{ $trx->id }}">
                         <div class="inner-left">
                             <div class="icon-box rgba_primary">
                                 <i class="icon icon-electricity-1"></i>
                             </div>
                             <div class="content">
-                                <h4>Telkomsel 20000</h4>
-                                <p>2024-09-23 14:23 WITA</p>
+                                <h4>{{ $produk->product_description }} {{ $produk->product_nominal }}</h4>
+                                <p>{{ $trx->created_at->format('Y-m-d H:i') }} WITA</p>
                             </div>
                         </div>
-                        <span class="num-val critical_color">Rp. 20.000</span>
+                        <span class="num-val critical_color">Rp.
+                            {{ number_format($produk->product_price, 0, ',', '.') }}</span>
                     </a>
-
-
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

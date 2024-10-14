@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prepaid;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -55,7 +57,14 @@ class HomeController extends Controller
 
     public function riwayat()
     {
-        return view('riwayat.riwayat');
+        $transaksi = Transaksi::latest()->paginate(10);
+        return view('riwayat.riwayat', compact(['transaksi']));
+    }
+
+    public function riwayat_show($id)
+    {
+        $transaksi = Transaksi::findOrFail($id);
+        return view('riwayat.detail', compact(['transaksi']));
     }
     public function profile()
     {
@@ -88,4 +97,5 @@ class HomeController extends Controller
         }
         return view('profile.profile', compact(['balance']));
     }
+
 }
