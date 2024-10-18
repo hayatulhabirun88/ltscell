@@ -84,6 +84,8 @@ class PulsaController extends Controller
                         'sn' => $data['data']['sn'] ?? '',
                     ]);
 
+                    Session::put('pulsa_finish', $data);
+
                     return redirect()->route('pulsa.view-transaksi-finish');
                 } else {
                     // Jika data tidak ditemukan di dalam respons
@@ -97,11 +99,12 @@ class PulsaController extends Controller
         }
 
 
-        return redirect()->route('pulsa.view-transaksi-finish', ['id' => $request->transaction_id]);
+        return redirect()->route('pulsa.view-transaksi-finish');
     }
 
     public function finish_proses()
     {
-        return view('pulsa.finish_proses');
+        $pulsa = Session::get('pulsa_finish')['data'];
+        return view('pulsa.finish_proses', compact(['pulsa']));
     }
 }

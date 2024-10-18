@@ -48,25 +48,31 @@
                 <span class="circle-box sm bg-circle"></span>
             </div>
 
-
             <div class="content">
                 <div class="top">
-                    <h2>Berhasil!</h2>
-                    <p class="fw_4">Pulsa dengan No HP. {{ $pulsa['customer_id'] }}</p>
+                    <h2>{{ $payment['message'] }}!</h2>
+                    <p class="fw_4">Kode Pelanggan : {{ $payment['hp'] }}</p>
                 </div>
                 <div class="tf-spacing-16"></div>
                 <div class="inner">
                     <p class="on_surface_color fw_6">Sejumlah</p>
-                    <h1>Rp. {{ number_format($pulsa['price']) }}</h1>
+                    <h1>Rp. {{ number_format($payment['price'], 0, ',', '.') }}</h1>
                 </div>
                 <div class="tf-spacing-16"></div>
                 <div class="bottom">
-                    <p class="on_surface_color fw_6">Status : {{ $pulsa['message'] }}</p>
-                    {{-- <p>ke nomor 081342726770</p> --}}
+                    <p class="on_surface_color fw_6">Detail</p>
+                    <p>Id Transaksi : {{ $payment['tr_id'] }}</p>
+                    <p>Waktu Pembayaran :
+                        {{ DateTime::createFromFormat('YmdHis', $payment['datetime'])->format('d M Y H:i:s') }}
+                    </p>
+                    <p>Nama Pelanggan : {{ $payment['tr_name'] }}</p>
+                    <p>Periode :
+                        {{ DateTime::createFromFormat('Ym', $payment['desc']['tagihan']['detail'][0]['periode'])->format('F Y') }}
+                    </p>
                 </div>
 
             </div>
-            <a href="/dashboard" class="tf-btn accent large">Kembali</a>
+            <a href="/dashboard" class="tf-btn accent large">Kembali ke Beranda</a>
 
         </div>
 

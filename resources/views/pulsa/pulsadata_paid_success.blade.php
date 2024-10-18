@@ -52,17 +52,16 @@
             <div class="content">
                 <div class="top">
                     <h2>Berhasil!</h2>
-                    <p class="fw_4">Pulsa dengan No HP. {{ $pulsa['customer_id'] }}</p>
+                    <p class="fw_4">Pulsa dengan No HP. {{ $payment['customer_id'] }}</p>
                 </div>
                 <div class="tf-spacing-16"></div>
                 <div class="inner">
                     <p class="on_surface_color fw_6">Sejumlah</p>
-                    <h1>Rp. {{ number_format($pulsa['price']) }}</h1>
+                    <h1>Rp. {{ number_format($payment['price']) }}</h1>
                 </div>
                 <div class="tf-spacing-16"></div>
                 <div class="bottom">
-                    <p class="on_surface_color fw_6">Status : {{ $pulsa['message'] }}</p>
-                    {{-- <p>ke nomor 081342726770</p> --}}
+                    <p class="on_surface_color fw_6">Status : {{ $payment['message'] }}</p>
                 </div>
 
             </div>

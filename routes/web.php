@@ -1,10 +1,15 @@
 <?php
 
-use App\Http\Controllers\DaftarHargaController;
-use App\Http\Controllers\PulsaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BpjsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PulsaController;
+use App\Http\Controllers\InternetController;
+use App\Http\Controllers\PlnPascaController;
+use App\Http\Controllers\PulsaDataController;
+use App\Http\Controllers\DaftarHargaController;
+use App\Http\Controllers\PlnPrabayarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +35,33 @@ Route::get('/pulsa-reguler-nominal', [PulsaController::class, 'nominal'])->name(
 Route::get('/pulsa-view-transaksi/{id}', [PulsaController::class, 'view_proses'])->name('pulsa.view-transaksi');
 Route::post('/pulsa-proses-transaksi', [PulsaController::class, 'proses_transaksi'])->name('pulsa.proses-transaksi');
 Route::get('/pulsa-finish-proses', [PulsaController::class, 'finish_proses'])->name('pulsa.view-transaksi-finish');
+
+// Internet
+Route::get('/internet', [InternetController::class, 'index'])->name('internet');
+Route::get('/internet-paid', [InternetController::class, 'paid'])->name('internet.paid');
+Route::get('/internet-paid-success', [InternetController::class, 'paid_success'])->name('internet.paid-success');
+
+// Pln Pasca Bayar
+Route::get('/pln-pasca', [PlnPascaController::class, 'index'])->name('plnpasca');
+Route::get('/pln-pasca-paid', [PlnPascaController::class, 'paid'])->name('plnpasca.paid');
+Route::get('/pln-pasca-paid-success', [PlnPascaController::class, 'paid_success'])->name('plnpasca.paid-success');
+
+// Pulsa Data
+Route::get('/pulsa-data', [PulsaDataController::class, 'index'])->name('pulsadata');
+Route::get('/pulsa-data-nominal', [PulsaDataController::class, 'nominal'])->name('pulsadata.pilih-nominal');
+Route::get('/pulsa-data-view-transaksi/{id}', [PulsaDataController::class, 'view_proses'])->name('pulsadata.view-transaksi');
+Route::get('/pulsa-data-paid', [PulsaDataController::class, 'paid'])->name('pulsadata.paid');
+Route::get('/pulsa-data-paid-success', [PulsaDataController::class, 'paid_success'])->name('pulsadata.paid-success');
+
+// Pln Pasca Bayar
+Route::get('/pln-prabayar', [PlnPrabayarController::class, 'index'])->name('plnprabayar');
+Route::get('/pln-prabayar-paid', [PlnPrabayarController::class, 'paid'])->name('plnprabayar.paid');
+Route::get('/pln-prabayar-paid-success', [PlnPrabayarController::class, 'paid_success'])->name('plnprabayar.paid-success');
+
+// BPJS
+Route::get('/bpjs', [BpjsController::class, 'index'])->name('bpjs');
+Route::get('/bpjs-paid', [BpjsController::class, 'paid'])->name('bpjs.paid');
+Route::get('/bpjs-paid-success', [BpjsController::class, 'paid_success'])->name('bpjs.paid-success');
 
 // riwayat
 Route::get('/riwayat-pulsa', [HomeController::class, 'riwayat_pulsa'])->name('riwayat.pulsa');

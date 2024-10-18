@@ -48,25 +48,8 @@
                 <span class="circle-box sm bg-circle"></span>
             </div>
 
-
-            <div class="content">
-                <div class="top">
-                    <h2>Berhasil!</h2>
-                    <p class="fw_4">Pulsa dengan No HP. {{ $pulsa['customer_id'] }}</p>
-                </div>
-                <div class="tf-spacing-16"></div>
-                <div class="inner">
-                    <p class="on_surface_color fw_6">Sejumlah</p>
-                    <h1>Rp. {{ number_format($pulsa['price']) }}</h1>
-                </div>
-                <div class="tf-spacing-16"></div>
-                <div class="bottom">
-                    <p class="on_surface_color fw_6">Status : {{ $pulsa['message'] }}</p>
-                    {{-- <p>ke nomor 081342726770</p> --}}
-                </div>
-
-            </div>
-            <a href="/dashboard" class="tf-btn accent large">Kembali</a>
+            @livewire('pln.plnprabayar-cekstatus')
+            <a href="/dashboard" class="tf-btn accent large">Kembali ke Beranda</a>
 
         </div>
 

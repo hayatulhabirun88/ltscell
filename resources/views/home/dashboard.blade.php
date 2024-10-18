@@ -165,7 +165,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/pln">
+                    <a href="/pln-pasca">
                         <div class="icon-box bg_color_4">
                             <img src="{{ asset('/') }}logo/pln_pascabayar.jpg" alt="">
                         </div>
@@ -173,7 +173,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/pln">
+                    <a href="/pln-prabayar">
                         <div class="icon-box bg_color_4">
                             <img src="{{ asset('/') }}logo/listrik-prabayar.jpg" alt="">
                         </div>
@@ -189,7 +189,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/pulsa">
+                    <a href="/pulsa-data">
                         <div class="icon-box bg_color_1">
                             <img width="25" src="{{ asset('/') }}logo/paket_data.png" alt="">
                         </div>
