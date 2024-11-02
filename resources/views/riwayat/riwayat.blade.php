@@ -37,6 +37,7 @@
                             </div>
                             <div class="content">
                                 <h4>{{ $produk->product_description }} {{ $produk->product_nominal }}</h4>
+                                <p>62{{ $trx->customer_id }}</p>
                                 <p>{{ $trx->created_at->format('Y-m-d H:i') }} WITA</p>
                             </div>
                         </div>

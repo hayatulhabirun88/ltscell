@@ -49,10 +49,14 @@ class Bpjs extends Component
             if ($response->successful()) {
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
+                if ($data['data']['response_code'] == 00) {
+                    Session::put('data', $data);
 
-                Session::put('data', $data);
+                    return redirect()->route('bpjs.paid');
+                } else {
+                    session()->flash('error', 'Cek Kembali Inputan Anda');
+                }
 
-                return redirect()->route('bpjs.paid');
 
             } else {
                 session()->flash('error', 'Pembayaran anda gagal.');

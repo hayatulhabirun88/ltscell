@@ -22,7 +22,7 @@ use App\Http\Controllers\PlnPrabayarController;
 |
 */
 
-Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/riwayat', [HomeController::class, 'riwayat'])->name('riwayat');

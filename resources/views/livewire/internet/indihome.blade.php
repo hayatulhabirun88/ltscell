@@ -1,4 +1,7 @@
 <div>
+    @if (session()->has('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
     <form wire:submit.prevent="cek_tagihan()">
         <div class="tf-form mt-7">
             <div class="group-input">

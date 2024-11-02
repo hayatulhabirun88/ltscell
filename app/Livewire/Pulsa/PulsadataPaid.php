@@ -44,14 +44,14 @@ class PulsadataPaid extends Component
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
                 // Periksa apakah 'data' ada dalam respons
-                if (isset($data['data'])) {
+                if ($data['data']['response_code'] == 00) {
 
                     Session::put('pulsadata_finish', $data);
 
                     return redirect()->route('pulsadata.paid-success');
                 } else {
                     // Jika data tidak ditemukan di dalam respons
-                    return redirect()->back()->withErrors(['error' => 'Data tidak ditemukan dalam respons.']);
+                    session()->flash('error', 'Cek kembali inputan anda');
                 }
             } else {
                 return redirect()->back();
@@ -62,6 +62,6 @@ class PulsadataPaid extends Component
     }
     public function render()
     {
-        return view('livewire.p-ulsa.pulsadata-paid');
+        return view('livewire.pulsa.pulsadata-paid');
     }
 }

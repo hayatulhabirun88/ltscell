@@ -34,8 +34,12 @@ class PaidShow extends Component
             if ($response->successful()) {
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
-                Session::put('payment', $data);
-                return redirect()->route('internet.paid-success');
+                if ($data['data']['response_code'] == 00) {
+                    Session::put('payment', $data);
+                    return redirect()->route('internet.paid-success');
+                } else {
+                    session()->flash('error', 'Cek Kembali Inputan Anda');
+                }
             } else {
                 session()->flash('error', 'Pembayaran anda gagal.');
             }

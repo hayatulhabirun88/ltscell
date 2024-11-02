@@ -57,7 +57,7 @@
 
                     </div>
                 </div>
-                <div class="wallet-footer">
+                {{-- <div class="wallet-footer">
                     <ul class="d-flex justify-content-between align-items-center">
                         <li class="wallet-card-item"><a class="fw_6" href="29_topup.html">
                                 <ul class="icon icon-topup">
@@ -89,7 +89,7 @@
                                 My QR
                             </a></li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </div>
 

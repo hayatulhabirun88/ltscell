@@ -45,9 +45,15 @@ class Indihome extends Component
             if ($response->successful()) {
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
-                Session::put('data', $data);
+                if ($data['data']['response_code'] == 00) {
+                    Session::put('data', $data);
 
-                return redirect()->route('internet.paid');
+                    return redirect()->route('internet.paid');
+                } else {
+                    session()->flash('error', 'Cek Kembali Inputan Anda');
+                }
+
+
 
             } else {
                 session()->flash('error', 'Pembayaran anda gagal.');

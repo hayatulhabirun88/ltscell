@@ -45,14 +45,14 @@ class PlnprabayarPaidShow extends Component
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
                 // Periksa apakah 'data' ada dalam respons
-                if (isset($data['data'])) {
+                if ($data['data']['response_code'] == 00) {
 
                     Session::put('plnprabayar_paid', $data);
 
                     return redirect()->route('plnprabayar.paid-success');
                 } else {
                     // Jika data tidak ditemukan di dalam respons
-                    return redirect()->back()->withErrors(['error' => 'Data tidak ditemukan dalam respons.']);
+                    session()->flash('error', 'Cek Kembali Inputan Anda');
                 }
             } else {
                 return redirect()->back();
