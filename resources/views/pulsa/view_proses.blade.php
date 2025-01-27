@@ -30,7 +30,7 @@
                 <div class="group-input">
                     <label>Harga</label>
                     <input type="text" name="no_hp"
-                        value="Rp. {{ number_format(\App\Models\Prepaid::find(Request::segment(2))->product_price, 0, ',', '.') }}"
+                        value="Rp. {{ number_format(\App\Models\Prepaid::find(Request::segment(2))->product_price + \App\Models\Pengaturan::find(1)->mark_up, 0, ',', '.') }}"
                         disabled>
                 </div>
                 <div class="group-input">

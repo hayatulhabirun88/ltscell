@@ -13,6 +13,7 @@ class PlnprabayarPaidShow extends Component
     public function bayar()
     {
 
+
         $this->validate([
             'nominal' => 'required'
         ], [
@@ -45,7 +46,7 @@ class PlnprabayarPaidShow extends Component
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
                 // Periksa apakah 'data' ada dalam respons
-                if ($data['data']['response_code'] == 00) {
+                if ($data['data']['status'] == 0) {
 
                     Session::put('plnprabayar_paid', $data);
 

@@ -33,15 +33,11 @@ class PlnprabayarCekstatus extends Component
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
                 // Periksa apakah 'data' ada dalam respons
-                if ($data['data']['response_code'] == 00) {
 
-                    Session::put('plnprabayar_paid', $data);
+                Session::put('plnprabayar_paid', $data);
 
-                    return redirect()->route('plnprabayar.paid-success');
-                } else {
-                    // Jika data tidak ditemukan di dalam respons
-                    session()->flash('error', 'Cek Kembali Inputan Anda');
-                }
+                return redirect()->route('plnprabayar.paid-success');
+
             } else {
                 return redirect()->back();
             }

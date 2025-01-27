@@ -98,4 +98,15 @@ class HomeController extends Controller
         return view('profile.profile', compact(['balance']));
     }
 
+    public function riwayat_download()
+    {
+        dd('berhasil');
+    }
+
+    public function riwayat_view()
+    {
+        $transaksi = Transaksi::latest()->get();
+        return view('riwayat.riwayat_view', compact(['transaksi']));
+    }
+
 }

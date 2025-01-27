@@ -7,8 +7,12 @@
         </div>
     </div>
 </div>
+
 <div id="app-wrap">
+
+    <a href="/riwayat/download" style="margin-top:3px;" class="tf-btn accent large">Download Riwayat</a>
     <div class="app-section st1 mt-1 mb-5 bg_white_color">
+
         <div class="tf-container">
             @php
                 $lastMonth = null; // Variabel untuk menyimpan bulan terakhir yang ditampilkan

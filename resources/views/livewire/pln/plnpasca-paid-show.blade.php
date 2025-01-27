@@ -29,7 +29,8 @@
             </div>
             <div class="group-input">
                 <label>Total</label>
-                <input type="text" value="{{ number_format($data['price']) }}" readonly>
+                <input type="text"
+                    value="{{ number_format($data['price'] + \App\Models\Pengaturan::find(1)->mark_up) }}" readonly>
             </div>
 
         </div>

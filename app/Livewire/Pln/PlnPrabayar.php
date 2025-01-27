@@ -45,7 +45,7 @@ class PlnPrabayar extends Component
                 // Mendapatkan data balance dari response JSON
                 $data = $response->json();
                 // Periksa apakah 'data' ada dalam respons
-                if ($data['data']['response_code'] == 00) {
+                if ($data['data']['rc'] == 00) {
 
                     Session::put('plnprabayar', $data);
 
@@ -55,7 +55,7 @@ class PlnPrabayar extends Component
                     session()->flash('error', 'Cek Kembali Inputan Anda');
                 }
             } else {
-                return redirect()->back();
+                session()->flash('error', 'Cek Kembali Inputan Anda');
             }
         } catch (\Throwable $th) {
             $balance = '-';

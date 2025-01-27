@@ -12,7 +12,7 @@
         <div class="tf-spacing-16"></div>
         <div class="inner">
             <p class="on_surface_color fw_6">Sejumlah</p>
-            <h1>Rp. {{ number_format($payment['price'], 0, ',', '.') }}</h1>
+            <h1>Rp. {{ number_format($payment['price'] + \App\Models\Pengaturan::find(1)->mark_up, 0, ',', '.') }}</h1>
         </div>
         <div class="tf-spacing-16"></div>
         <div class="bottom">

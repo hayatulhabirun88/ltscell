@@ -57,7 +57,7 @@
                 <div class="tf-spacing-16"></div>
                 <div class="inner">
                     <p class="on_surface_color fw_6">Sejumlah</p>
-                    <h1>Rp. {{ number_format($pulsa['price']) }}</h1>
+                    <h1>Rp. {{ number_format($pulsa['price'] + \App\Models\Pengaturan::find(1)->mark_up) }}</h1>
                 </div>
                 <div class="tf-spacing-16"></div>
                 <div class="bottom">

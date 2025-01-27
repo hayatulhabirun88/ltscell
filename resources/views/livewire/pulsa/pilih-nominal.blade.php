@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <span class="num-val critical_color">Rp.
-                    {{ number_format($harga->product_price, 0, ',', '.') }}</span>
+                    {{ number_format($harga->product_price + \App\Models\Pengaturan::find(1)->mark_up, 0, ',', '.') }}</span>
             </a>
         </div>
     @endforeach

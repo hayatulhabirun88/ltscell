@@ -8,6 +8,7 @@ use App\Http\Controllers\PulsaController;
 use App\Http\Controllers\InternetController;
 use App\Http\Controllers\PlnPascaController;
 use App\Http\Controllers\PulsaDataController;
+use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\DaftarHargaController;
 use App\Http\Controllers\PlnPrabayarController;
 
@@ -23,11 +24,15 @@ use App\Http\Controllers\PlnPrabayarController;
 */
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('login.page');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/riwayat', [HomeController::class, 'riwayat'])->name('riwayat');
 Route::get('/riwayat-detail/{id}', [HomeController::class, 'riwayat_show'])->name('riwayat.show');
+Route::get('/riwayat/download', [HomeController::class, 'riwayat_download'])->name('riwayat.download');
+Route::get('/riwayat-view', [HomeController::class, 'riwayat_view'])->name('riwayat.view');
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+Route::get('/pengaturan', [PengaturanController::class, 'index'])->name('pengaturan');
 
 // Pulsa Reguler
 Route::get('/pulsa-reguler', [PulsaController::class, 'index'])->name('pulsa.reguler');
