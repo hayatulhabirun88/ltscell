@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Prepaid;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -100,7 +101,13 @@ class HomeController extends Controller
 
     public function riwayat_download()
     {
-        dd('berhasil');
+        $transaksi = Transaksi::latest()->get();  // Ambil data transaksi
+
+        // Membuat PDF dari view yang diberikan
+        $pdf = PDF::loadView('riwayat.riwayat_view', compact('transaksi'));
+
+        // Mendownload PDF
+        return $pdf->download('riwayat_transaksi.pdf');
     }
 
     public function riwayat_view()

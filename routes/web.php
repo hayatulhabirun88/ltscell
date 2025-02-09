@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Web\Laporan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\AuthLogin;
 use App\Http\Controllers\BpjsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\web\Wdashboard;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PulsaController;
 use App\Http\Controllers\InternetController;
@@ -75,3 +78,16 @@ Route::get('/riwayat-pulsa', [HomeController::class, 'riwayat_pulsa'])->name('ri
 Route::get('/daftar-harga', [DaftarHargaController::class, 'index'])->name('daftar.harga');
 Route::get('/daftar-harga-prepaid/{id}', [DaftarHargaController::class, 'show'])->name('daftar.harga_prepaid.show');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+
+// WEB REPORT
+
+Route::get('/auth/login', [AuthLogin::class, 'index'])->name('web.auth.login');
+Route::get('/auth/logout', [AuthLogin::class, 'logout'])->name('web.auth.logout');
+Route::post('/auth/proses', [AuthLogin::class, 'proses'])->name('web.auth.proses');
+Route::get('/web/dashboard', [Wdashboard::class, 'index'])->name('web.dashboard');
+
+// LAPORAN
+Route::get('/web/prabayar', [Laporan::class, 'prabayar'])->name('web.laporan.prabayar');
+Route::post('/web/proses_prabayar', [Laporan::class, 'proses_prabayar'])->name('web.laporan.proses_prabayar');
+Route::get('/web/pascabayar', [Laporan::class, 'pascabayar'])->name('web.laporan.pascabayar');
+Route::post('/web/proses_pascabayar', [Laporan::class, 'proses_pascabayar'])->name('web.laporan.proses_pascabayar');
