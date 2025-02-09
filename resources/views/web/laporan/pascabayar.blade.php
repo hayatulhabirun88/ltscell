@@ -31,7 +31,7 @@
                             </div>
 
                         </div><br>
-                        <button type="submit" class="btn btn-primary">Cetak Laporan</button>
+                        <button type="submit" class="btn btn-primary">Download PDF</button>
                     </form>
                 </div>
             </div>

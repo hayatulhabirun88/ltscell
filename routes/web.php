@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\AuthLogin;
 use App\Http\Controllers\BpjsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\web\Wdashboard;
+use App\Http\Controllers\Web\Wdashboard;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PulsaController;
 use App\Http\Controllers\InternetController;

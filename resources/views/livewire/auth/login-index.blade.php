@@ -24,8 +24,5 @@
             <button type="submit" class="tf-btn accent large" wire:click.prevent="login()">Log In</button>
 
         </form>
-
-        <p class="mb-9 fw-3 text-center ">Anda belum memiliki akun? <a href="/registrasi"
-                class="auth-link-rg">Daftar</a></p>
     </div>
 </div>
