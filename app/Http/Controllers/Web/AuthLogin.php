@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\RateLimiter;
 
 class AuthLogin extends Controller
 {
@@ -30,6 +31,13 @@ class AuthLogin extends Controller
             'password.min' => 'Password harus terdiri dari minimal 8 karakter.',
         ]);
 
+        $key = 'login:' . $request->no_hp;
+
+        // Membatasi percobaan login
+        if (RateLimiter::tooManyAttempts($key, 10)) {
+            return back()->withErrors(['no_hp' => 'Terlalu banyak percobaan login. Coba lagi setelah beberapa menit.']);
+        }
+
         // Cek autentikasi
         if (Auth::attempt(['no_hp' => $request->no_hp, 'password' => $request->password])) {
 
@@ -41,6 +49,9 @@ class AuthLogin extends Controller
 
             return redirect()->intended('/web/dashboard'); // Halaman setelah login berhasil
         }
+
+        // Jika login gagal, increment percobaan
+        RateLimiter::hit($key, 300); // Menambahkan percobaan login dengan durasi 60 detik
 
         return back()->withErrors(['no_hp' => 'Nomor HP atau password salah']);
     }

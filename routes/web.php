@@ -11,9 +11,11 @@ use App\Http\Controllers\PulsaController;
 use App\Http\Controllers\InternetController;
 use App\Http\Controllers\PlnPascaController;
 use App\Http\Controllers\PulsaDataController;
+use App\Http\Controllers\Web\ShiftController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\DaftarHargaController;
 use App\Http\Controllers\PlnPrabayarController;
+use App\Http\Controllers\Web\KaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,3 +93,8 @@ Route::get('/web/prabayar', [Laporan::class, 'prabayar'])->name('web.laporan.pra
 Route::post('/web/proses_prabayar', [Laporan::class, 'proses_prabayar'])->name('web.laporan.proses_prabayar');
 Route::get('/web/pascabayar', [Laporan::class, 'pascabayar'])->name('web.laporan.pascabayar');
 Route::post('/web/proses_pascabayar', [Laporan::class, 'proses_pascabayar'])->name('web.laporan.proses_pascabayar');
+Route::resource('/web/karyawan', KaryawanController::class);
+Route::resource('/web/shift', ShiftController::class);
+Route::get('/web/shift/penugasan/{id}', [KaryawanController::class, 'penugasan'])->name('shift.penugasan');
+Route::post('/web/shift/ajax-penugasan', [KaryawanController::class, 'ajax_penugasan'])->name('shift.ajax_penugasan');
+Route::post('/web/shift/ajax-jam-penugasan', [KaryawanController::class, 'ajax_jam_penugasan'])->name('shift.ajax_jam_penugasan');

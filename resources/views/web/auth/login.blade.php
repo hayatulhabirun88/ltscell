@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Login - Laporan Transaksi LTS Cell</title>
+    <title>Login - Manajemen LTS Cell</title>
     <link href="{{ asset('/') }}web/css/styles.css" rel="stylesheet" />
     <script src="{{ asset('/') }}web/js/all.js"></script>
 </head>
@@ -21,7 +21,7 @@
                         <div class="col-lg-5">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Laporan Transaksi LTSCell</h3>
+                                    <h3 class="text-center font-weight-light my-4">Manajemen LTSCell</h3>
                                     <div class="text-center">
                                         <img src="{{ asset('/') }}icon.png" alt="" style="width: 200px;">
                                     </div>
